@@ -11,10 +11,11 @@
         <div class="login">
             <h1>Login</h1>
             <form method="post">
-                <input type="text" name="u" placeholder="Usuario" required="required" />
-                <input type="password" name="p" placeholder="Contraseña" required="required" />
-                <button type="submit" class="btn btn-primary btn-block btn-large">Ingresar</button>
+                <input type="text" id="u" maxlength="10" placeholder="Usuario" autocomplete="off" autofocus required="required" />
+                <input type="password" id="p" maxlength="10" placeholder="Contraseña" autocomplete="off" required="required" />
+                <button id="btnSubmitLogin" onclick="SubmitLogin()" type="submit" class="btn btn-primary btn-block btn-large">Ingresar</button>
             </form>
         </div>
+        <script src="_js/js.js" type="text/javascript"></script>
     </body>
 </html>
