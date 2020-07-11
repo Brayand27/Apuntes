@@ -1,14 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.apuntes.modelo.dao;
 
-/**
- *
- * @author Brayan
- */
+import com.apuntes.modelo.vo.Usuario;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 public class UsuarioDAO {
-    
+
+    Usuario vo;
+    ResultSet rs;
+    Connection cnn;
+
+    public int ValidaLogin() throws SQLException {
+        cnn = DriverManager.getConnection("jdbc:mysql://localhost/java_mysql", "root", "");
+        Statement sentencia = cnn.createStatement();
+        rs = sentencia.executeQuery("SELECT count(*) FROM Apuntes.Usuarios WHERE user=" + vo.getUser() + " AND pass=" + vo.getPass());
+        if (rs.next()) {
+            System.out.println("Login exitoso");
+        }
+        return 0;
+    }
+
 }
